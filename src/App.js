@@ -45,12 +45,12 @@ function App() {
     const toggleReminder = (id) => {
       setTasks(
         tasks.map((task) =>
-        task.id == id ? { ...task, reminder: !task.reminder } : task))
+        task.id === id ? { ...task, reminder: !task.reminder } : task))
     }
 
   return (
     <div className="container">
-      <Header onAdd={() => setShowAddTask(!showAddTask)}/>
+      <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask}/>
       {showAddTask && <AddTask onAdd={addTask} />}
       {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} /> : <h3>Add a task</h3>}
     </div>
